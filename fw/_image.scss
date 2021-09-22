@@ -1,0 +1,111 @@
+$respimg-margin-vertical: 0.5em !default;
+$respimg-margin-top: 0.25em !default;
+$respimg-margin-bottom: 0.25em !default;
+
+$figcaption-font-size: 70% !default;
+$figcaption-font-style: italic !default;
+
+// Generate a bunch of definitions to limit max-width.
+// I use this for sizing images. You get a bunch of classes from s1 to s99 that represent
+//  percentage widths.
+@mixin img-s-percentages {
+    @for $i from 1 through 99 {
+        .s#{$i} { max-width: #{$i * 1%}; }
+    }
+}
+
+// The actual percents.
+@include img-s-percentages;
+
+// Stretch to absolute full length of screen.
+@mixin full-vw {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    @include clearfix;
+    margin-bottom: 2em;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+img, .respimg {
+
+    margin-top: $respimg-margin-top;
+    margin-bottom: $respimg-margin-bottom;
+
+    &.left {
+        float: left;
+        margin-right: $respimg-margin-vertical;
+    }
+    
+    &.right {
+        float: right;
+        margin-left: $respimg-margin-vertical;
+    }
+    
+    // Full width.
+    &.full {
+        @include full-vw;
+    
+        img {
+            width: 100%;
+        }
+    }
+
+    // No float.
+    &.nf {
+        float: none;
+    }
+
+    &.link, 
+    &.link:link, 
+    &.link:visited, 
+    &.link:hover, 
+    &.link:active {
+        border-bottom: none;
+        text-decoration: none;
+    }
+
+    figcaption,
+    &.caption {
+        font-size: $figcaption-font-size;
+        font-style: $figcaption-font-style;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+figure.respimg {
+    margin: 0;
+    width: 100%;
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+}
+
+figure.respimg.respimg.full
+{
+    @include full-vw;
+}
+
+figure.respimg.respimg.left {
+    margin-right: $respimg-margin-vertical;
+}
+
+figure.respimg.respimg.right {
+    margin-left: $respimg-margin-vertical;
+}
+
+//img[data-sizes="auto"] { display: block; width: 100%; }

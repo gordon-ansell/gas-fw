@@ -1,0 +1,13 @@
+{
+    "name": "gordon-ansell/gas-fw",
+    "description": "SCSS Framework",
+    "keywords": [
+        "framework",
+        "scss",
+        "css",
+        "greenfedora"
+    ],
+    "homepage": "http://gordonansell.com/greenfedora/scss",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev"
+}

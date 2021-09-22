@@ -1,0 +1,27 @@
+{
+	"name": "gas-fw",
+	"version": "0.1.0",
+	"description": "SCSS Framework.",
+	"homepage": "https://gordonansell.com/statico",
+	"license": "MIT",
+	"minimum-stability": "dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gordon-ansell/gas-scss"
+	},
+	"authors": [
+		{
+			"name": "Gordon Ansell",
+			"email": "contact@gordonansell.com",
+			"url": "https://gordonansell.com"
+		}
+	],
+	"files": [
+		"fw/"
+	],
+	"dependencies": {},
+	"devDependencies": {},
+	"engines": {
+		"node": ">=12"
+	}
+}

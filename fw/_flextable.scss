@@ -1,0 +1,267 @@
+// ==============================================================
+// Flex table allocations.
+// ==============================================================
+
+$flextable-font-family:             $font-family-primary !default;
+$felxtable-font-size:               100% !default;
+
+$flextable-row-border-bottom: 	    1px solid !default;
+$flextable-row-padding:			    0.25em 0.25em 0.25em 0.25em !default;
+
+$flextable-header-font-weight: 	    bold !default;
+
+$flextable-subheader-font-weight: 	bold !default;
+
+$flextable-item-padding: 		    0 0.25em 0 0.25em !default;
+
+$flextable-smallest-squeezes:	    true !default;
+
+$flextable-subrow-hdr-width:        15em !default;
+$flextable-subrow-padding:          0 1em 0 0 !default;
+$flextable-subrow-font-weight:      bold !default; 
+$flextable-subrow-text-align:       right !default; 
+
+$flextable-bp1:                     37.5em !default;
+$flextable-bp2:                     62em !default;
+
+// ---------------------
+// Wrap flextables.
+// ---------------------
+
+.flextable {
+    font-family: $flextable-font-family;
+    font-size: $flextable-font-size;
+	width: 100%;
+	border-radius: 0.5em;
+	display: flex;
+    flex-direction: column;
+
+	tr, .row {
+		width: 100%;
+        display: flex;
+        flex-direction: row;
+
+		padding: $flextable-row-padding;
+		border-bottom: $flextable-row-border-bottom;
+		justify-content: flex-start;
+
+		td, th, .column {
+			height: auto;
+			padding: $flextable-item-padding;
+            flex-grow: 1;
+            flex-shrink: 1;
+			text-align: left;
+
+			&.show1, &.show2 {
+				display: none;
+			}
+
+			.subitem {
+				width: 100%;
+			}
+
+			&.icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+
+				.iconw  {
+					padding-right: 1em;
+				}
+
+				.iconw:last-of-type {
+					padding-right: 0;
+				}
+			}
+
+            &.breakword {
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+		}
+
+        &.with-subrows {
+            border-bottom: none;
+        }
+
+	}
+
+    tr.subrow {
+
+        flex-direction: column;
+
+        .subrow-hdr {
+            display: inline-block;
+            width: $flextable-subrow-hdr-width;
+            font-weight: $flextable-subrow-font-weight;
+            text-align: $flextable-subrow-text-align;
+            padding: $flextable-subrow-padding;
+        }
+        
+        .subrow-body {
+            width: auto;
+        }
+        
+    }
+
+    /*
+	tr.with-subs, .row.with-subs {
+		width: 100%;
+        display: flex;
+        flex-direction: column;
+
+		.subrow {
+			width: 100%;
+			padding: $flextable-row-padding;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+			td, .column {
+				height: auto;
+				padding: $flextable-item-padding;
+
+				&.right {
+					text-align: right;
+				}
+
+			}
+
+		}
+	}
+    */
+
+    .right {
+		text-align: right;
+	}
+
+	.centre {
+		text-align: center;
+	}
+
+	&.smaller {
+		font-size: 80%;
+	}
+
+	.bold {
+		font-weight: bold;
+	}
+
+	@for $i from 1 through 100 {
+		.size-#{$i} {
+            flex-basis: $i * 1%;
+		}
+	}		
+
+	@for $i from 1 through 10 {
+		.grow-#{$i} {
+            flex-grow: $i;
+		}
+	}	
+
+	thead tr, thead .row {
+		font-weight: $flextable-header-font-weight;
+
+		button.sortablecolumn-button {
+			font-weight: $flextable-header-font-weight;
+		}
+	}	
+
+	.subheader {
+		display: block;
+		font-weight: $flextable-subheader-font-weight;
+
+		td, .column {
+			padding-left: 0.5em;
+		}		
+	}
+
+
+	.footer {
+		display: block;
+		text-align: center;
+		padding-top: 0.5em;
+
+		.paging-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+		}
+	}	
+
+	.hide1, .hide2 {
+		display: none;
+        //flex-basis: 0;
+	}
+	
+	img.icon {
+		height: 16px;
+		width: 16px;
+        vertical-align: middle;
+        padding: 0;
+        margin: 0;
+	}
+}
+
+
+@media screen and (min-width: $flextable-bp1) {
+	.flextable {
+	
+		tr, .row {
+	
+			.hide1 {
+				display: inline;
+			}
+
+			td, th, .column {
+				&.show1 {
+					display: inline;
+				}
+			}
+	
+		}
+	
+		img.icon {
+			height: 20px;
+			width: 20px;
+		}
+	}
+}
+
+@media screen and (min-width: $flextable-bp2) {
+	.flextable {
+	
+		tr, .row {
+	
+			.hide2 {
+				display: inline;
+            }
+	
+			td, th, .column {
+				&.show2 {
+					display: inline;
+				}
+			}
+		}
+	
+	}
+}
+
+button.sortablecolumn-button {
+    padding: none;
+    margin: none;
+    text-align: unset;
+    background: none;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+	color: inherit;
+	cursor: pointer;
+	border: 0.5px solid;
+	border-radius: 0.5em;
+
+    &:focus {
+        border: none;
+    }
+
+}

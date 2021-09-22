@@ -1,0 +1,202 @@
+// ==============================================================
+// Flex table allocations.
+// ==============================================================
+
+$flextable-bgcol:				white !default;
+
+$flextable-row-border-bottom: 	1px solid rgb(229, 229, 229) !default;
+$flextable-row-padding:			0.25em 0.25em 0.25em 0.25em !default;
+$flextable-row-stripe-colour: 	#f5f5f5 !default;
+
+$flextable-header-bgcol: 		#FFEEDB !default;
+$flextable-header-font-weight: 	bold !default;
+
+$flextable-subheader-bgcol: 		#e6f2ff !default;
+$flextable-subheader-font-weight: 	bold !default;
+
+$flextable-footer-bgcol: 		#ffffe6 !default;
+
+$flextable-item-padding: 		0 0.25em 0 0.25em !default;
+
+$flextable-smallest-squeezes:	true !default;
+
+
+.flextable2 {
+	width: 100%;
+	border-radius: 0.5em;
+	display: flex;
+    flex-direction: column;
+
+	.flextable-row {
+		width: 100%;
+        display: flex;
+        flex-direction: row;
+
+		padding: $flextable-row-padding;
+		border-bottom: $flextable-row-border-bottom;
+		justify-content: flex-start;
+
+		.flextable-row-item {
+			height: auto;
+			padding: $flextable-item-padding;
+
+			&.flextable-show1, &.flextable-show2 {
+				display: none;
+			}
+
+			.flextable-row-subitem {
+				width: 100%;
+			}
+
+			&.flextable-icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+
+				.iconw  {
+					padding-right: 1em;
+				}
+
+				.iconw:last-of-type {
+					padding-right: 0;
+				}
+			}
+		}
+
+	}
+
+	.flextable-row.with-subs {
+		width: 100%;
+        display: flex;
+        flex-direction: column;
+
+		.flextable-subrow {
+			width: 100%;
+			padding: $flextable-row-padding;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+			.flextable-row-item {
+				height: auto;
+				padding: $flextable-item-padding;
+
+				&.align-right {
+					text-align: right;
+				}
+
+			}
+
+		}
+	}
+
+	.align-right {
+		text-align: right;
+	}
+
+	.align-centre {
+		text-align: center;
+	}
+
+	&.smaller {
+		font-size: 80%;
+	}
+
+	@for $i from 1 through 100 {
+		.flextable-size-#{$i} {
+            flex-basis: $i * 1%;
+		}
+	}		
+
+	@for $i from 1 through 10 {
+		.flextable-grow-#{$i} {
+            flex-grow: $i;
+		}
+	}	
+
+	.flextable-header {
+		background-color: $flextable-header-bgcol;
+		font-weight: $flextable-header-font-weight;
+	}	
+
+	.flextable-subheader {
+		display: block;
+		background-color: $flextable-subheader-bgcol;
+		font-weight: $flextable-subheader-font-weight;
+
+		.flextable-row-item {
+			padding-left: 0.5em;
+		}		
+	}
+
+
+	.flextable-footer {
+		display: block;
+		background-color: $flextable-footer-bgcol;
+		text-align: center;
+		padding-top: 0.5em;
+
+		.paging-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+		}
+	}	
+
+	.flextable-hide-bp1, .flextable-hide-bp2 {
+		display: none;
+        flex-basis: 0;
+	}
+	
+	img.icon {
+		height: 16px;
+		width: 16px;
+	}
+}
+
+.flextable2.stripe .flextable-row:nth-child(even) {
+	background-color: $flextable-row-stripe-colour;
+}
+
+@media screen and (min-width: 37.5em) {
+	.flextable2 {
+	
+		.flextable-row {
+	
+			.flextable-hide-bp1 {
+				display: inline;
+			}
+
+			.flextable-row-item {
+				&.flextable-show1 {
+					display: inline;
+				}
+			}
+	
+		}
+	
+		img.icon {
+			height: 24px;
+			width: 24px;
+		}
+	}
+}
+
+@media screen and (min-width: 62em) {
+	.flextable2 {
+	
+		.flextable-row {
+	
+			.flextable-hide-bp2 {
+				display: inline;
+			}
+	
+			.flextable-row-item {
+				&.flextable-show2 {
+					display: inline;
+				}
+			}
+		}
+	
+	}
+}
