@@ -36,11 +36,16 @@ img {
     height: auto;
 }
 
+// Lazysizes.
+img[data-sizes="auto"] { 
+    display: block; 
+    width: 100%; 
+}
+
 img, .respimg {
 
     margin-top: $respimg-margin-top;
     margin-bottom: $respimg-margin-bottom;
-    display: inline-block;
 
     &.left {
         float: left;
