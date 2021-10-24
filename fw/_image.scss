@@ -34,13 +34,13 @@ img {
     max-width: 100%;
     width: 100%;
     height: auto;
-    display: inline-block;
 }
 
 img, .respimg {
 
     margin-top: $respimg-margin-top;
     margin-bottom: $respimg-margin-bottom;
+    display: inline-block;
 
     &.left {
         float: left;
