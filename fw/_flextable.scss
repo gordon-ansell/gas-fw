@@ -8,6 +8,8 @@ $flextable-font-size:               100% !default;
 $flextable-row-border-bottom: 	    1px solid !default;
 $flextable-row-padding:			    0.25em 0.25em 0.25em 0.25em !default;
 
+$flextable-col-justify-content:     flex-start !default;
+
 $flextable-header-font-weight: 	    bold !default;
 
 $flextable-subheader-font-weight: 	bold !default;
@@ -51,6 +53,7 @@ $flextable-bp2:                     62em !default;
             flex-grow: 1;
             flex-shrink: 1;
 			text-align: left;
+            justify-content: $flextable-col-justify-content;
 
 			&.show1, &.show2 {
 				display: none;
