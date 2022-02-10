@@ -8,7 +8,9 @@ $flextable-font-size:               100% !default;
 $flextable-row-border-bottom: 	    1px solid !default;
 $flextable-row-padding:			    0.25em 0.25em 0.25em 0.25em !default;
 
+$flextable-col-flex:                auto !default;              // Change to 1 to align columns.
 $flextable-col-align-content:       flex-start !default;
+$flextable-col-text-align:          left !default;
 
 $flextable-header-font-weight: 	    bold !default;
 
@@ -52,8 +54,9 @@ $flextable-bp2:                     62em !default;
 			padding: $flextable-item-padding;
             flex-grow: 1;
             flex-shrink: 1;
-			text-align: left;
+			text-align: $flextable-col-text-align;
             align-content: $flextable-col-align-content;
+            flex: $flextable-col-flex;
 
 			&.show1, &.show2 {
 				display: none;
