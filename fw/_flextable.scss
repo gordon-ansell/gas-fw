@@ -7,6 +7,7 @@ $flextable-font-size:               100% !default;
 
 $flextable-row-border-bottom: 	    1px solid !default;
 $flextable-row-padding:			    0.25em 0.25em 0.25em 0.25em !default;
+$flextable-row-stripe-colour: 	    #f5f5f5 !default;
 
 $flextable-col-flex:                auto !default;              // Change to 1 to align columns.
 $flextable-col-align-content:       flex-start !default;
@@ -271,3 +272,8 @@ button.sortablecolumn-button {
     }
 
 }
+
+.flextable.stripe .flextable-row:nth-child(even) {
+	background-color: $flextable-row-stripe-colour;
+}
+
