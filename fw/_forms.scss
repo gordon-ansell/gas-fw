@@ -16,6 +16,7 @@ $form-label-font-size: 85% !default;
 $form-input-border: 0.25px solid !default;
 $form-input-border-radius: 4px !default;
 $form-input-padding: 10px 5px !default;
+$form-input-padding-item: 0 0 0 1rem !default;
 
 $form-input-placeholder-font-size: 80% !default;
 $form-input-placeholder-font-weight: 100 !default;
@@ -121,6 +122,11 @@ $form-bp: 800px !default;
                 input {
                     display: inline;
                     width: auto;
+                    padding: $form-input-padding-item;
+
+                    &:first-of-type {
+                        padding-left: 0;
+                    }
                 }
             }
     
