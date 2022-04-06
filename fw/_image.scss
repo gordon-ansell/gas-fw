@@ -1,6 +1,7 @@
 $respimg-margin-vertical: 0.5em !default;
 $respimg-margin-top: 0.25em !default;
 $respimg-margin-bottom: 0.25em !default;
+$respimg-margin-bottom-centred: 1em !default;
 
 $figcaption-font-size: 70% !default;
 $figcaption-font-style: italic !default;
@@ -61,7 +62,7 @@ img, .respimg {
         display: block;
         text-align: center;
         margin: 0 auto;
-        margin-bottom: $respimg-margin-bottom;
+        margin-bottom: $respimg-margin-bottom-centred;
     }
     
     // Full width.
