@@ -56,6 +56,10 @@ img, .respimg {
         float: right;
         margin-left: $respimg-margin-vertical;
     }
+
+    &.centre {
+        margin: 0 auto;
+    }
     
     // Full width.
     &.full {
